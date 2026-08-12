@@ -368,16 +368,34 @@
             margin: 15px 0;
         }
 
+        /* DISCORD TERMINAL FORM IMPRVD */
         .discord-form {
             display: flex;
             flex-direction: column;
             gap: 12px;
             margin-top: 15px;
+            background: #08030d;
+            border: 1px solid var(--border-dim);
+            padding: 15px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+        }
+
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-label {
+            font-family: 'VT323', monospace;
+            font-size: 1.1rem;
+            color: var(--accent-purple);
+            letter-spacing: 1px;
         }
 
         .discord-input, .discord-textarea {
             width: 100%;
-            background: #08030d;
+            background: #130b1b;
             border: 1px solid var(--border-dim);
             color: var(--text-main);
             font-family: 'Share Tech Mono', monospace;
@@ -389,15 +407,22 @@
 
         .discord-input:focus, .discord-textarea:focus {
             border-color: var(--accent-purple);
-            box-shadow: 0 0 8px rgba(194, 94, 255, 0.3);
+            box-shadow: 0 0 10px rgba(194, 94, 255, 0.4);
+            background: #180d24;
         }
 
         .discord-textarea {
             resize: vertical;
-            min-height: 90px;
+            min-height: 100px;
+        }
+
+        .discord-btn-group {
+            display: flex;
+            gap: 10px;
         }
 
         .discord-send-btn {
+            flex: 2;
             background: #130b1b;
             border: 1px solid var(--accent-purple);
             color: var(--accent-purple);
@@ -415,6 +440,24 @@
             color: var(--bg-deep);
             box-shadow: 0 0 12px var(--accent-purple);
             font-weight: bold;
+        }
+
+        .discord-clear-btn {
+            flex: 1;
+            background: #130b1b;
+            border: 1px solid var(--border-dim);
+            color: var(--text-dim);
+            font-family: 'VT323', monospace;
+            font-size: 1.3rem;
+            padding: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            letter-spacing: 1px;
+        }
+
+        .discord-clear-btn:hover {
+            border-color: #ff5e7e;
+            color: #ff5e7e;
         }
 
         /* GRID GALERI FOTO */
@@ -932,7 +975,7 @@
             </div>
         </div>
 
-        <!-- Tab Navigasi Kelas (Urutan Baru) -->
+        <!-- Tab Navigasi Kelas -->
         <nav class="os-nav" id="mainNav">
             <button class="nav-btn active" onclick="changeTab('home', event)">01_BERANDA</button>
             <button class="nav-btn" onclick="changeTab('structure', event)">02_PENGURUS</button>
@@ -952,7 +995,6 @@
                 <h2>// WELCOME TO OUR CLASS ARCHIVE</h2>
                 <p>bla bla deskripsi bagian</p>
 
-                <!-- Tempat Foto Banner Utama -->
                 <div class="image-slot">
                     <div class="placeholder-content"></div>
                 </div>
@@ -967,90 +1009,25 @@
                 <h2>// CLASS_ORGANIZATION</h2>
                 <p>Struktur kepengurusan kelas periode tahun ini:</p>
 
-                <!-- Wali Kelas di Tengah Atas (Lebih Besar) -->
                 <div class="teacher-section">
                     <div class="member-card teacher-card">
                         <div class="image-slot">
                             <div class="placeholder-content"></div>
                         </div>
                         <h4>[ WALI KELAS ]</h4>
-                        <p>blabla</p>
+                        <p>Aldila Caesario R.</p>
                     </div>
                 </div>
 
-                <!-- Grid Pengurus Lainnya -->
                 <div class="structure-grid">
-                    <!-- Ketua Kelas -->
-                    <div class="member-card">
-                        <div class="image-slot">
-                            <div class="placeholder-content"></div>
-                        </div>
-                        <h4>[ KETUA KELAS ]</h4>
-                        <p>blabla</p>
-                    </div>
-
-                    <!-- Wakil Ketua -->
-                    <div class="member-card">
-                        <div class="image-slot">
-                            <div class="placeholder-content"></div>
-                        </div>
-                        <h4>[ WAKIL KETUA ]</h4>
-                        <p>blabla</p>
-                    </div>
-
-                    <!-- Sekretaris 1 -->
-                    <div class="member-card">
-                        <div class="image-slot">
-                            <div class="placeholder-content"></div>
-                        </div>
-                        <h4>[ SEKRETARIS 1 ]</h4>
-                        <p>blabla</p>
-                    </div>
-
-                    <!-- Sekretaris 2 -->
-                    <div class="member-card">
-                        <div class="image-slot">
-                            <div class="placeholder-content"></div>
-                        </div>
-                        <h4>[ SEKRETARIS 2 ]</h4>
-                        <p>blabla</p>
-                    </div>
-
-                    <!-- Bendahara 1 -->
-                    <div class="member-card">
-                        <div class="image-slot">
-                            <div class="placeholder-content"></div>
-                        </div>
-                        <h4>[ BENDAHARA 1 ]</h4>
-                        <p>blabla</p>
-                    </div>
-
-                    <!-- Bendahara 2 -->
-                    <div class="member-card">
-                        <div class="image-slot">
-                            <div class="placeholder-content"></div>
-                        </div>
-                        <h4>[ BENDAHARA 2 ]</h4>
-                        <p>blabla</p>
-                    </div>
-
-                    <!-- PJ Akademik -->
-                    <div class="member-card">
-                        <div class="image-slot">
-                            <div class="placeholder-content"></div>
-                        </div>
-                        <h4>[ PJ AKADEMIK ]</h4>
-                        <p>blabla</p>
-                    </div>
-
-                    <!-- PJ Kebersihan -->
-                    <div class="member-card">
-                        <div class="image-slot">
-                            <div class="placeholder-content"></div>
-                        </div>
-                        <h4>[ PJ KEBERSIHAN ]</h4>
-                        <p>blabla</p>
-                    </div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>[ KETUA KELAS ]</h4><p>Iqram Firza Y.</p></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>[ WAKIL KETUA ]</h4><p>Amelia Cristiani P.</p></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>[ SEKRETARIS 1 ]</h4><p>Inspira Syair C.</p></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>[ SEKRETARIS 2 ]</h4><p>Jessica Margaretha</p></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>[ BENDAHARA 1 ]</h4><p>Khanza Noya A.</p></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>[ BENDAHARA 2 ]</h4><p>Jihan Lalita J.</p></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>[ PJ AKADEMIK ]</h4><p>Maestro Joaquin V.</p></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>[ PJ KEBERSIHAN ]</h4><p>Fatima Kizavara H.</p></div>
                 </div>
             </div>
 
@@ -1060,36 +1037,35 @@
                 <p>Daftar seluruh siswa dan siswi kelas:</p>
 
                 <div class="member-grid-5">
-                    <!-- Anggota 01 - 29 -->
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
-                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4><p>blabla</p></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
+                    <div class="member-card"><div class="image-slot"><div class="placeholder-content"></div></div><h4>blablablaaa</h4></div>
                 </div>
             </div>
 
@@ -1108,7 +1084,6 @@
                 <p>blabla buat ntar blog individu</p>
                 
                 <div class="project-grid">
-                    <!-- Project Card 1 -->
                     <div class="project-card">
                         <div>
                             <p style="color: var(--accent-purple); font-size: 0.95rem;">blog individu blabla</p>
@@ -1117,10 +1092,9 @@
                             </div>
                             <p style="font-size: 1rem; margin-top: 5px;">deskripsi bagian</p>
                         </div>
-                        <a href="https://example.com/project1" target="_blank" class="project-btn">[ LAUNCH ]</a>
+                        <a href="blog.html" target="_blank" class="project-btn">[ LAUNCH ]</a>
                     </div>
 
-                    <!-- Project Card 2 -->
                     <div class="project-card">
                         <div>
                             <p style="color: var(--accent-purple); font-size: 0.95rem;">apa kek</p>
@@ -1134,17 +1108,17 @@
                 </div>
             </div>
 
-            <!-- TAB 6: CONNECT (SPLIT 50/50) -->
+            <!-- TAB 6: CONNECT (SPLIT 50/50 WITH ENHANCED DISCORD FORM) -->
             <div id="connect" class="page-pane">
                 <h2>// CONNECT_WITH_US</h2>
-                <p>deskripsi bagian</p>
+                <p>Kirim sinyal langsung ke server Discord kelas kami melalui saluran komunikasi terenkripsi.</p>
 
                 <div class="split-connect-grid">
                     <!-- SISI KIRI: INSTAGRAM -->
                     <div class="connect-box">
                         <div>
                             <h3>> INSTAGRAM_PROFILE</h3>
-                            <p style="font-size: 0.95rem; color: var(--text-dim);">deskripsi bagian</p>
+                            <p style="font-size: 0.95rem; color: var(--text-dim);">Dapatkan update foto dan kegiatan terbaru kelas di Instagram resmi kami.</p>
                             
                             <div class="image-slot">
                                 <div class="placeholder-content"></div>
@@ -1157,22 +1131,31 @@
                     <!-- SISI KANAN: DISCORD WEBHOOK -->
                     <div class="connect-box">
                         <div>
-                            <h3>> DISCORD_WEBHOOK</h3>
-                            <p style="font-size: 0.95rem; color: var(--text-dim);">ntar pokonya kalo kirim bisa muncul di server discord kita pesannya</p>
+                            <h3>> DISCORD_TRANSMITTER</h3>
+                            <p style="font-size: 0.95rem; color: var(--text-dim);">Pesan yang Anda ketik akan langsung terkirim sebagai Embed spesial ke Discord.</p>
 
                             <div class="discord-form">
-                                <input type="text" id="discordUsername" class="discord-input" placeholder="Nama / Pengirim (Opsional)...">
-                                <textarea id="discordMessage" class="discord-textarea" placeholder="Tulis pesan Anda di sini..."></textarea>
+                                <div class="form-row">
+                                    <span class="form-label">> SENDER_NAME:</span>
+                                    <input type="text" id="discordUsername" class="discord-input" placeholder="Masukkan nama (Opsional)...">
+                                </div>
+                                <div class="form-row">
+                                    <span class="form-label">> TRANSMISSION_DATA:</span>
+                                    <textarea id="discordMessage" class="discord-textarea" placeholder="Tuliskan pesan atau masukan Anda di sini..."></textarea>
+                                </div>
                                 
-                                <button type="button" class="discord-send-btn" onclick="sendDiscordWebhook()">[ TRANSMIT_MESSAGE ]</button>
-                                <p id="webhookStatus" style="font-size: 0.85rem; margin-top: 5px; color: var(--accent-purple); margin-bottom: 0;"></p>
+                                <div class="discord-btn-group">
+                                    <button type="button" class="discord-send-btn" onclick="sendDiscordWebhook()">[ TRANSMIT ]</button>
+                                    <button type="button" class="discord-clear-btn" onclick="clearDiscordForm()">[ CLEAR ]</button>
+                                </div>
+                                <p id="webhookStatus" style="font-size: 0.85rem; margin-top: 5px; color: var(--accent-purple); margin-bottom: 0; min-height: 20px;"></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 7: GALERI FOTO (DIPINDAHKAN DI SINI) -->
+            <!-- TAB 7: GALERI FOTO -->
             <div id="gallery" class="page-pane">
                 <h2>// CLASS_PHOTO_DATABASE</h2>
                 <p>blabla deskripsi lagi</p>
@@ -1184,21 +1167,18 @@
                             <div class="placeholder-content"></div>
                         </div>
                     </div>
-
                     <div class="photo-card">
                         <span>blabla</span>
                         <div class="image-slot">
                             <div class="placeholder-content"></div>
                         </div>
                     </div>
-
                     <div class="photo-card">
                         <span>blabla</span>
                         <div class="image-slot">
                             <div class="placeholder-content"></div>
                         </div>
                     </div>
-
                     <div class="photo-card">
                         <span>blabla</span>
                         <div class="image-slot">
@@ -1333,9 +1313,17 @@
         function closeWindow() { document.getElementById('systemAlert').style.display = 'flex'; }
         function closeAlert() { document.getElementById('systemAlert').style.display = 'none'; }
 
-        /* FUNKSI DISCORD WEBHOOK SEND */
+        /* FUNGSI CLEAR FORM DISCORD */
+        function clearDiscordForm() {
+            document.getElementById('discordUsername').value = "";
+            document.getElementById('discordMessage').value = "";
+            const statusEl = document.getElementById('webhookStatus');
+            statusEl.innerText = "";
+        }
+
+        /* DISCORD WEBHOOK ENHANCED SYSTEM (EMBED VERSION) */
         function sendDiscordWebhook() {
-            const webhookURL = "YOUR_DISCORD_WEBHOOK_URL_HERE"; 
+            const webhookURL = "https://discord.com/api/webhooks/1537188545771601972/3-k5sx4HkYj_ECbld1kire9lTthJ55DNaWuWvAaEJQeQuFgu2XE57V_g0sT4Gda8hn9K"; 
 
             const usernameInput = document.getElementById('discordUsername').value.trim();
             const messageInput = document.getElementById('discordMessage').value.trim();
@@ -1343,22 +1331,43 @@
 
             if (!messageInput) {
                 statusEl.style.color = "#ff5e7e";
-                statusEl.innerText = "> ERROR: Pesan tidak boleh kosong!";
-                return;
-            }
-
-            if (webhookURL === "YOUR_DISCORD_WEBHOOK_URL_HERE") {
-                statusEl.style.color = "#ff5e7e";
-                statusEl.innerText = "> ERROR: Masukkan URL Webhook Discord pada kode JS dulu!";
+                statusEl.innerText = "> ERROR: Transmission payload cannot be empty!";
                 return;
             }
 
             statusEl.style.color = "var(--text-dim)";
-            statusEl.innerText = "> TRANSMITTING...";
+            statusEl.innerText = "> TRANSMITTING DATA TO DISCORD...";
 
+            const senderName = usernameInput !== "" ? usernameInput : "Anonymous Student";
+            
+            /* PAYLOAD DENGAN FORMAT EMBED SPESIAL DISCORD */
             const payload = {
-                username: usernameInput !== "" ? usernameInput : "Anonim (Class Archive)",
-                content: messageInput
+                username: "CLASS_ARCHIVE_TERMINAL",
+                avatar_url: "https://i.imgur.com/w93mJ0X.png",
+                embeds: [
+                    {
+                        title: "📡 NEW_TRANSMISSION_RECEIVED",
+                        description: `\`\`\`\n${messageInput}\n\`\`\``,
+                        color: 12738303, // Color Hex #C25EFF dalam Format Decimal
+                        fields: [
+                            {
+                                name: "👤 Sender",
+                                value: senderName,
+                                inline: true
+                            },
+                            {
+                                name: "💻 System Source",
+                                value: "Class Archive Web OS",
+                                inline: true
+                            }
+                        ],
+                        footer: {
+                            text: "CLASS_ARCHIVE // Encrypted Communication Protocol",
+                            icon_url: "https://i.imgur.com/w93mJ0X.png"
+                        },
+                        timestamp: new Date().toISOString()
+                    }
+                ]
             };
 
             fetch(webhookURL, {
@@ -1369,16 +1378,16 @@
             .then(response => {
                 if (response.ok || response.status === 204) {
                     statusEl.style.color = "#5effa3";
-                    statusEl.innerText = "> SUCCESS: Pesan terkirim ke Discord!";
+                    statusEl.innerText = "> SUCCESS: Transmission sent successfully!";
                     document.getElementById('discordMessage').value = "";
                 } else {
                     statusEl.style.color = "#ff5e7e";
-                    statusEl.innerText = "> ERROR: Gagal mengirim pesan.";
+                    statusEl.innerText = "> ERROR: Transmission refused by remote host.";
                 }
             })
             .catch(err => {
                 statusEl.style.color = "#ff5e7e";
-                statusEl.innerText = "> ERROR: Terjadi gangguan jaringan.";
+                statusEl.innerText = "> ERROR: Network connection interruption.";
             });
         }
 
