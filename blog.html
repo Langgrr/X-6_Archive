@@ -167,7 +167,7 @@
             margin-top: 8px;
         }
 
-        /* CONTAINER AXIALLY STACKED BUTTONS */
+        /* CONTAINER BUTTONS */
         .hero-buttons {
             display: flex;
             flex-direction: column;
@@ -320,7 +320,7 @@
             box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
         }
 
-        /* FLEXBOX GRID FOR 5 ITEMS PER ROW WITH CENTERED BOTTOM ROW */
+        /* FLEXBOX GRID FOR 5 ITEMS PER ROW */
         .flex-grid-5 {
             display: flex;
             flex-wrap: wrap;
@@ -347,17 +347,16 @@
             width: 100%;
         }
 
-        /* KEMBALIKAN HOVER EFFECT PADA CARD */
         .blog-card:hover {
             border-color: var(--accent-purple);
             transform: translateY(-4px);
             box-shadow: 0 0 18px rgba(194, 94, 255, 0.25);
         }
 
-        /* THUMBNAIL CONTAINER */
+        /* THUMBNAIL FRAME & HOVER EFFECTS */
         .card-thumb {
             width: 100%;
-            height: 120px;
+            height: 130px;
             background: #08030d;
             border: 1px solid var(--border-dim);
             margin-bottom: 12px;
@@ -366,18 +365,49 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            padding: 3px;
+
+            /* Potongan sudut sci-fi */
+            clip-path: polygon(
+                0 0, 
+                calc(100% - 10px) 0, 100% 10px, 
+                100% 100%, 
+                10px 100%, 0 calc(100% - 10px)
+            );
+            transition: all 0.4s ease;
+        }
+
+        .card-thumb::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(194, 94, 255, 0.15) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
         }
 
         .card-thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
+            filter: grayscale(40%) contrast(110%);
+            transition: transform 0.5s ease, filter 0.5s ease;
         }
 
-        /* EFEK ZOOM GAMBAR SAAT CARD DI-HOVER */
+        .blog-card:hover .card-thumb {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
         .blog-card:hover .card-thumb img {
-            transform: scale(1.08);
+            transform: scale(1.12);
+            filter: grayscale(0%) contrast(100%);
+        }
+
+        .blog-card:hover .card-thumb::after {
+            opacity: 0.2;
         }
 
         .card-title {
@@ -396,7 +426,6 @@
             margin-bottom: 10px;
         }
 
-        /* TAG NAMA DI BEKAS DESKRIPSI (SEBELUM READ LOG) */
         .card-tag {
             font-family: 'VT323', monospace;
             font-size: 0.95rem;
@@ -409,7 +438,6 @@
             width: fit-content;
         }
 
-        /* CARD META & TOMBOL READ LOG HANYA YANG MENJADI LINK */
         .card-meta {
             margin-top: auto;
             padding-top: 10px;
@@ -432,13 +460,12 @@
             letter-spacing: 1px;
             text-align: center;
             display: block;
-            width: 100%; /* MEMANJANG SAMPAI UJUNG KARTU */
+            width: 100%;
             padding: 6px 0;
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
-        /* HOVER TERSENDIRI UNTUK TOMBOL READ LOG */
         .card-link-btn:hover .card-link-text {
             color: #ffffff;
             background: var(--accent-purple);
@@ -504,17 +531,16 @@
         <div class="hero-banner">
             <div class="hero-text">
                 <h1>// CYBER_LOG_ARCHIVE</h1><br><br>
-                <p>Eksplorasi catatan sistem, artikel teknologi, dan jurnal algoritma cybernetic.</p>
+                <p>Blog siswa - siswa kelas X-6</p>
             </div>
             
-            <!-- Grouping 2 Tombol (Atas & Bawah) -->
             <div class="hero-buttons">
                 <!-- 1. Tombol Kembali ke Web Utama -->
                 <a href="index.html" class="btn-cyber">
                     <span>[ MAIN_WEBSITE</span> <span class="arrow-icon arrow-up">↑</span> <span>]</span>
                 </a>
 
-                <!-- 2. Tombol Lihat Semua Database (Menggunakan JS Scroll agar tidak mengubah Hash URL) -->
+                <!-- 2. Tombol Lihat Semua Database -->
                 <a href="javascript:void(0)" onclick="document.getElementById('allContentSection').scrollIntoView({behavior: 'smooth'})" class="btn-cyber">
                     <span>[ VIEW_ALL_DATABASE</span> <span class="arrow-icon arrow-down">↓</span> <span>]</span>
                 </a>
@@ -527,7 +553,7 @@
             <!-- Random 4 Recommendations Section -->
             <section class="random-section">
                 <div class="section-header">
-                    <h2 class="section-title">⚡ RANDOM_RECOMMENDATIONS (4)</h2>
+                    <h2 class="section-title">Rekomendasi Hari Ini</h2>
                 </div>
                 <div class="flex-grid-5" id="randomGrid"></div>
             </section>
@@ -552,54 +578,256 @@
     </div>
 
     <script>
-        // 1. NONAKTIFKAN BROWSER SCROLL RESTORATION & PAKSA SCROLL KE ATAS SAAT DIMUAT
+        // Disable scroll restoration & reset ke atas saat load
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
         
-        // Membersihkan URL hash jika ada sisa dari navigasi terdahulu
         if (window.location.hash) {
             history.replaceState(null, null, window.location.pathname);
         }
 
         window.scrollTo(0, 0);
 
-        // Database 29 Konten Blog
+        // Database Array Menurun (alt diset kosong jika thumb terisi)
         const articles = [
-            { id: 1, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=1", thumb: "" },
-            { id: 2, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=2", thumb: "" },
-            { id: 3, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=3", thumb: "" },
-            { id: 4, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=4", thumb: "" },
-            { id: 5, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=5", thumb: "" },
-            { id: 6, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=6", thumb: "" },
-            { id: 7, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=7", thumb: "" },
-            { id: 8, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=8", thumb: "" },
-            { id: 9, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=9", thumb: "" },
-            { id: 10, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=10", thumb: "" },
-            { id: 11, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=11", thumb: "" },
-            { id: 12, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=12", thumb: "" },
-            { id: 13, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=13", thumb: "" },
-            { id: 14, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=14", thumb: "" },
-            { id: 15, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=15", thumb: "" },
-            { id: 16, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=16", thumb: "" },
-            { id: 17, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=17", thumb: "" },
-            { id: 18, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=18", thumb: "" },
-            { id: 19, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=19", thumb: "" },
-            { id: 20, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=20", thumb: "" },
-            { id: 21, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=21", thumb: "" },
-            { id: 22, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=22", thumb: "" },
-            { id: 23, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=23", thumb: "" },
-            { id: 24, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=24", thumb: "" },
-            { id: 25, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=25", thumb: "" },
-            { id: 26, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=26", thumb: "" },
-            { id: 27, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=27", thumb: "" },
-            { id: 28, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=28", thumb: "" },
-            { id: 29, tag: "nama", title: "judul", desc: "deskripsi", url: "article.html?id=29", thumb: "" }
+            {
+                id: 1,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=1",
+                thumb: ""
+            },
+            {
+                id: 2,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=2",
+                thumb: ""
+            },
+            {
+                id: 3,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=3",
+                thumb: ""
+            },
+            {
+                id: 4,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=4",
+                thumb: ""
+            },
+            {
+                id: 5,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=5",
+                thumb: ""
+            },
+            {
+                id: 6,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=6",
+                thumb: ""
+            },
+            {
+                id: 7,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=7",
+                thumb: ""
+            },
+            {
+                id: 8,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=8",
+                thumb: ""
+            },
+            {
+                id: 9,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=9",
+                thumb: ""
+            },
+            {
+                id: 10,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=10",
+                thumb: ""
+            },
+            {
+                id: 11,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=11",
+                thumb: ""
+            },
+            {
+                id: 12,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=12",
+                thumb: ""
+            },
+            {
+                id: 13,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=13",
+                thumb: ""
+            },
+            {
+                id: 14,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=14",
+                thumb: ""
+            },
+            {
+                id: 15,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=15",
+                thumb: ""
+            },
+            {
+                id: 16,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=16",
+                thumb: ""
+            },
+            {
+                id: 17,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=17",
+                thumb: ""
+            },
+            {
+                id: 18,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=18",
+                thumb: ""
+            },
+            {
+                id: 19,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=19",
+                thumb: ""
+            },
+            {
+                id: 20,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=20",
+                thumb: ""
+            },
+            {
+                id: 21,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=21",
+                thumb: ""
+            },
+            {
+                id: 22,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=22",
+                thumb: ""
+            },
+            {
+                id: 23,
+                tag: "Pramudya D. R.",
+                title: "Wisata Air Panas Tirta Sayaga",
+                desc: "Lokasi, fasilitas, dan manfaat wisata air panas tirta sayaga",
+                url: "Content/23Pram/pram.html",
+                thumb: "Content/23Pram/pram1.png"
+            },
+            {
+                id: 24,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=24",
+                thumb: ""
+            },
+            {
+                id: 25,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=25",
+                thumb: ""
+            },
+            {
+                id: 26,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=26",
+                thumb: ""
+            },
+            {
+                id: 27,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=27",
+                thumb: ""
+            },
+            {
+                id: 28,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=28",
+                thumb: ""
+            },
+            {
+                id: 29,
+                tag: "nama",
+                title: "judul",
+                desc: "deskripsi",
+                url: "article.html?id=29",
+                thumb: ""
+            }
         ];
 
-        // Function Generator Kartu Blog
+        // Generator Kartu Blog (alt dihilangkan/dikosongkan agar judul tidak muncul jika gambar tidak ada)
         function createCardHTML(item) {
-            const thumbnailHTML = item.thumb ? `<img src="${item.thumb}" alt="${item.title}">` : '';
+            const thumbnailHTML = item.thumb ? `<img src="${item.thumb}" alt="">` : '';
 
             return `
                 <div class="blog-card-wrapper">
@@ -634,7 +862,7 @@
             document.getElementById('mainGrid').innerHTML = items.map(createCardHTML).join('');
         }
 
-        // Clock Functionality
+        // Jam Digital Header
         function updateHeaderClock() {
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
@@ -647,7 +875,7 @@
 
         // Inisialisasi awal saat dimuat
         document.addEventListener('DOMContentLoaded', () => {
-            window.scrollTo(0, 0); // Memastikan kembali ke top
+            window.scrollTo(0, 0);
             updateHeaderClock();
             renderRandomRecommendations();
             renderMainList(articles);
