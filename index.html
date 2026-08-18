@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLASS_ARCHIVE.EXE // CLASS_BLOG</title>
+    <title>X-6 Archive</title>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -469,23 +469,16 @@
         }
 
         .photo-grid-4 .image-slot {
-            height: 220px;
+            height: 250px;
             margin: 0;
         }
 
         .photo-card {
             background: #100818;
             border: 1px solid var(--border-dim);
-            padding: 15px;
+            padding: 12px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-        }
-
-        .photo-card span {
-            font-family: 'VT323', monospace;
-            font-size: 1.2rem;
-            color: var(--accent-purple);
         }
 
         /* STRUKTUR PENGURUS & ANGGOTA */
@@ -964,7 +957,7 @@
     <div class="os-container">
         <!-- Title Bar -->
         <div class="window-header">
-            <div class="window-title">CLASS_ARCHIVE_SYSTEM.exe</div>
+            <div class="window-title">Class Archive of X-6</div>
             <div class="header-right">
                 <div class="header-clock" id="header-clock-text">00:00:00</div>
                 <div class="window-controls">
@@ -977,7 +970,7 @@
 
         <!-- Tab Navigasi Kelas -->
         <nav class="os-nav" id="mainNav">
-            <button class="nav-btn active" onclick="changeTab('home', event)">01_BERANDA</button>
+            <button class="nav-btn active" onclick="changeTab('home', event)">01_HOME</button>
             <button class="nav-btn" onclick="changeTab('structure', event)">02_PENGURUS</button>
             <button class="nav-btn" onclick="changeTab('members', event)">03_ANGGOTA</button>
             <button class="nav-btn" onclick="changeTab('announcements', event)">04_PENGUMUMAN</button>
@@ -992,11 +985,11 @@
 
             <!-- TAB 1: BERANDA -->
             <div id="home" class="page-pane active">
-                <h2>// WELCOME TO OUR CLASS ARCHIVE</h2>
+                <h2>WELCOME TO X-6 CLASS ARCHIVE</h2>
                 <p>bla bla deskripsi bagian</p>
 
                 <div class="image-slot">
-                    <div class="placeholder-content"></div>
+                    <img src="indexfoto/niko.png" alt="Foto Beranda Kelas X-6">
                 </div>
 
                 <p style="color: var(--accent-purple); font-style: italic;">
@@ -1004,15 +997,14 @@
                 </p>
             </div>
 
-            <!-- TAB 2: PENGURUS KELAS -->
+            <!-- TAB 2: PENGURUS KELAS (DESKRIPSI REMOVED) -->
             <div id="structure" class="page-pane">
-                <h2>// CLASS_ORGANIZATION</h2>
-                <p>Struktur kepengurusan kelas periode tahun ini:</p>
+                <h2>Struktur Kelas X-6</h2>
 
                 <div class="teacher-section">
                     <div class="member-card teacher-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto_walikelas.jpg">
+                            <img src="path/ke/foto_walikelas.jpg" alt="Wali Kelas">
                         </div>
                         <h4>[ WALI KELAS ]</h4>
                         <p>Aldila Caesario R.</p>
@@ -1022,56 +1014,56 @@
                 <div class="structure-grid">
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto_ketua.jpg">
+                            <img src="Foto/Iqram.jpeg" alt="Ketua Kelas">
                         </div>
                         <h4>[ KETUA KELAS ]</h4>
                         <p>Iqram Firza Y.</p>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto_wakil.jpg">
+                            <img src="Foto/Amelia.jpeg" alt="Wakil Ketua">
                         </div>
                         <h4>[ WAKIL KETUA ]</h4>
                         <p>Amelia Cristiani P.</p>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto_sekretaris1.jpg">
+                            <img src="Foto/Inspira.jpeg" alt="Sekretaris 1">
                         </div>
                         <h4>[ SEKRETARIS 1 ]</h4>
                         <p>Inspira Syair C.</p>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto_sekretaris2.jpg">
+                            <img src="Foto/Jessica.jpeg" alt="Sekretaris 2">
                         </div>
                         <h4>[ SEKRETARIS 2 ]</h4>
                         <p>Jessica Margaretha</p>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto_bendahara1.jpg">
+                            <img src="Foto/Khanza.jpeg" alt="Bendahara 1">
                         </div>
                         <h4>[ BENDAHARA 1 ]</h4>
                         <p>Khanza Noya A.</p>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto_bendahara2.jpg">
+                            <img src="Foto/Jihan.jpeg" alt="Bendahara 2">
                         </div>
                         <h4>[ BENDAHARA 2 ]</h4>
                         <p>Jihan Lalita J.</p>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto_akademik.jpg">
+                            <img src="Foto/Maestro.jpeg" alt="PJ Akademik">
                         </div>
                         <h4>[ PJ AKADEMIK ]</h4>
                         <p>Maestro Joaquin V.</p>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto_kebersihan.jpg">
+                            <img src="Foto/Fatima.jpeg" alt="PJ Kebersihan">
                         </div>
                         <h4>[ PJ KEBERSIHAN ]</h4>
                         <p>Fatima Kizavara H.</p>
@@ -1081,183 +1073,183 @@
 
             <!-- TAB 3: ANGGOTA KELAS -->
             <div id="members" class="page-pane">
-                <h2>// CLASS_MEMBERS_LIST</h2>
+                <h2>Anggota Kelas X-6</h2>
                 <p>Daftar seluruh siswa dan siswi kelas:</p>
 
                 <div class="member-grid-5">
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto1.jpg">
+                            <img src="Foto/Aida.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Aida Nur Assyifa (1)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto2.jpg">
+                            <img src="Foto/Amelia.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Amelia Cristiani Putri Wibisana (2)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto3.jpg">
+                            <img src="Foto/Aqila.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Aqila Rifani (3)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto4.jpg">
+                            <img src="Foto/Arkana.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Arkana Farras Nafi (4)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto5.jpg">
+                            <img src="Foto/Athfal.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Athfal Zahid (5)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto6.jpg">
+                            <img src="Foto/Cahaya.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Cahaya Mutiara Cinta Ahmad (6)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto7.jpg">
+                            <img src="Foto/Fairus.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Fairus Diska Nabila (7)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto8.jpg">
+                            <img src="Foto/Fatima.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Fatima Kizavara Hamdani (8)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto9.jpg">
+                            <img src="Foto/Gilang.png">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Gilang Ridzki Ramadhian (9)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto10.jpg">
+                            <img src="Foto/Inspira.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Inspira Syair Cinta (10)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto11.jpg">
+                            <img src="Foto/Iqram.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Iqram Firza Yuaffie (11)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto12.jpg">
+                            <img src="Foto/Jessica.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Jessica Margaretha (12)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto13.jpg">
+                            <img src="Foto/Jihan.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Jihan Lalita Jasmine (13)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto14.jpg">
+                            <img src="Foto/Jocelyn.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Jocelyn Abigail Renatauli Pakpahan (14)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto15.jpg">
+                            <img src="Foto/Khanza.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Khanza Noya Adzkiya (15)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto16.jpg">
+                            <img src="Foto/Maestro.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Maestro Joaquin Virtuoso (16)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
                             <img src="Foto/Mikhael.jpg">
                         </div>
-                        <h4>Mikhael Evan Panjaitan</h4>
+                        <h4>Mikhael Evan Panjaitan (17)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto18.jpg">
+                            <img src="Foto/Ray.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Muhammad Raymughni Putra Budiman (18)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto19.jpg">
+                            <img src="Foto/Nada.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Nada Ahlam Fakhira Suryo (19)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto20.jpg">
+                            <img src="Foto/Namira.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Namira Firosya An` Amta Achjari (20)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto21.jpg">
+                            <img src="Foto/Nazhero.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Nazhero Fawwaz (21)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto22.jpg">
+                            <img src="Foto/Pradipta.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Pradipta Teguh Giovanni (22)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
                             <img src="Foto/Pram.jfif">
                         </div>
-                        <h4>Pramudya Dwijune Rabbani</h4>
+                        <h4>Pramudya Dwijune Rabbani (23)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto24.jpg">
+                            <img src="Foto/Rasydan.png">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Rasydan Arindra Arsa (24)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto25.jpg">
+                            <img src="Foto/Ratu.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Ratu Kalyca Azka Shaquila Hanum (25)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto26.jpg">
+                            <img src="Foto/Reza.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Reza Attar Farras Ramadhan (26)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto27.jpg">
+                            <img src="Foto/Salma.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Salma Syamila Fasya (27)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto28.jpg">
+                            <img src="Foto/Shafana.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Shafana Putri Azalea (28)</h4>
                     </div>
                     <div class="member-card">
                         <div class="image-slot">
-                            <img src="path/ke/foto29.jpg">
+                            <img src="Foto/Simon.jpeg">
                         </div>
-                        <h4>blablablaaa</h4>
+                        <h4>Simon Hotditua Nababan (29)</h4>
                     </div>
                 </div>
             </div>
@@ -1267,7 +1259,7 @@
                 <h2>// LOG_PENGUMUMAN</h2>
                 <div style="background: #100818; border: 1px solid var(--border-dim); padding: 20px; margin-top: 15px;">
                     <p style="color: var(--accent-purple); font-weight: bold;">Jasa Web</p>
-                    <p>Bayar gw 50 ribu rupiah, gk boleh kurang, boleh lebih, dikira bikin gini gk effort</p>
+                    <p>becanda ya soal bayarnya, tapi kalo mau donasi boleh bgt, capek sumpah.</p>
                 </div>
             </div>
 
@@ -1281,7 +1273,7 @@
                         <div>
                             <p style="color: var(--accent-purple); font-size: 0.95rem;">blog individu blabla</p>
                             <div class="image-slot">
-                                <div class="placeholder-content"></div>
+                                <img src="path/ke/foto_project1.jpg" alt="Project 1">
                             </div>
                             <p style="font-size: 1rem; margin-top: 5px;">deskripsi bagian</p>
                         </div>
@@ -1292,7 +1284,7 @@
                         <div>
                             <p style="color: var(--accent-purple); font-size: 0.95rem;">apa kek</p>
                             <div class="image-slot">
-                                <div class="placeholder-content"></div>
+                                <img src="path/ke/foto_project2.jpg" alt="Project 2">
                             </div>
                             <p style="font-size: 1rem; margin-top: 5px;">deskripsi bagian</p>
                         </div>
@@ -1301,7 +1293,7 @@
                 </div>
             </div>
 
-            <!-- TAB 6: CONNECT (SPLIT 50/50 WITH ENHANCED DISCORD FORM) -->
+            <!-- TAB 6: CONNECT -->
             <div id="connect" class="page-pane">
                 <h2>// CONNECT_WITH_US</h2>
                 <p>Kirim sinyal langsung ke server Discord kelas kami melalui saluran komunikasi terenkripsi.</p>
@@ -1314,7 +1306,7 @@
                             <p style="font-size: 0.95rem; color: var(--text-dim);">Dapatkan update foto dan kegiatan terbaru kelas di Instagram resmi kami.</p>
                             
                             <div class="image-slot">
-                                <div class="placeholder-content"></div>
+                                <img src="path/ke/foto_instagram.jpg" alt="Instagram Class">
                             </div>
                         </div>
 
@@ -1351,31 +1343,27 @@
             <!-- TAB 7: GALERI FOTO -->
             <div id="gallery" class="page-pane">
                 <h2>// CLASS_PHOTO_DATABASE</h2>
-                <p>blabla deskripsi lagi</p>
+                <p>Dokumentasi dan arsip galeri kegiatan kelas X-6.</p>
 
                 <div class="photo-grid-4">
                     <div class="photo-card">
-                        <span>blabla</span>
                         <div class="image-slot">
-                            <div class="placeholder-content"></div>
+                            <img src="path/ke/foto_galeri1.jpg" alt="Dokumentasi 1">
                         </div>
                     </div>
                     <div class="photo-card">
-                        <span>blabla</span>
                         <div class="image-slot">
-                            <div class="placeholder-content"></div>
+                            <img src="path/ke/foto_galeri2.jpg" alt="Dokumentasi 2">
                         </div>
                     </div>
                     <div class="photo-card">
-                        <span>blabla</span>
                         <div class="image-slot">
-                            <div class="placeholder-content"></div>
+                            <img src="path/ke/foto_galeri3.jpg" alt="Dokumentasi 3">
                         </div>
                     </div>
                     <div class="photo-card">
-                        <span>blabla</span>
                         <div class="image-slot">
-                            <div class="placeholder-content"></div>
+                            <img src="path/ke/foto_galeri4.jpg" alt="Dokumentasi 4">
                         </div>
                     </div>
                 </div>
@@ -1533,7 +1521,6 @@
 
             const senderName = usernameInput !== "" ? usernameInput : "Anonymous Student";
             
-            /* PAYLOAD DENGAN FORMAT EMBED SPESIAL DISCORD */
             const payload = {
                 username: "CLASS_ARCHIVE_TERMINAL",
                 avatar_url: "https://i.imgur.com/w93mJ0X.png",
@@ -1541,7 +1528,7 @@
                     {
                         title: "📡 NEW_TRANSMISSION_RECEIVED",
                         description: `\`\`\`\n${messageInput}\n\`\`\``,
-                        color: 12738303, // Color Hex #C25EFF dalam Format Decimal
+                        color: 12738303,
                         fields: [
                             {
                                 name: "👤 Sender",
